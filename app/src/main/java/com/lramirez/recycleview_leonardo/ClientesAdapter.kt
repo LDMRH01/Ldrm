@@ -14,6 +14,10 @@ class ClientesAdapter(var context: Context,
 
 {
     inner class vHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+        lateinit var txtid: TextView
+        init {
+            txtid= itemView.findViewById(R.id.txtId)
+        }
         lateinit var txtnombre: TextView
         init{
             txtnombre=itemView.findViewById(R.id.txtNombre)
@@ -38,6 +42,7 @@ class ClientesAdapter(var context: Context,
     }
     override fun onBindViewHolder(holder: ClientesAdapter.vHolder, position: Int) {
        var clientes = ListaClientes[position]
+        holder.txtid.text=clientes.id
         holder.txtnombre.text=clientes.Nombre
         holder.txtpreciom.text=clientes.PrecioM
         holder.txtpreciomy.text=clientes.PrecioMy
